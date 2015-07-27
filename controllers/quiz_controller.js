@@ -60,9 +60,18 @@ exports.answer = function(req, res) {
 };
 
 exports.index = function(req, res) {
-	models.Quiz.findAll().then(function(quizes) {
-		res.render('quizes/index', {quizes: quizes});
-	}).catch(function(error) {next(error);});
+	// Comprobamos si la petición get incluye el envío del 
+	// parámetro get
+	var search = req.query.search;
+	if (search) {
+		models.Quiz.findAll({where: ["pregunta like ?", '%'+search+'%']}).then(function(quizes) {
+			res.render('quizes/index', {quizes: quizes});
+		}).catch(function(error) {next(error);});
+	} else {
+		models.Quiz.findAll().then(function(quizes) {
+			res.render('quizes/index', {quizes: quizes});
+		}).catch(function(error) {next(error);});
+	}
 };
 
 

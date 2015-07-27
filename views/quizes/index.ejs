@@ -1,3 +1,10 @@
+<div>
+	<span>Listado de Preguntas</span> 
+	<form class="en-linea" method="get" action="">
+		<input type="text" name="search" placeholder="busca pregunta">
+		<input type="submit" value="Buscar">
+	</form>
+</div>
 <table>
 	<% var i; for (i=0; i < quizes.length; i++) { %>
 		<tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>

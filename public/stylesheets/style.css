@@ -34,3 +34,8 @@ img {
 	width: 60px;
 	height: 76.2px;
 }
+
+.en-linea {
+	display: inline;
+	margin-left: 1em;
+}
