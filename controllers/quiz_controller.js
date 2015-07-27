@@ -11,7 +11,7 @@ exports.answer = function(req, res) {
 	} else {
 		res.render('quizes/answer', {respuesta : 'Incorrecto', title : 'Quiz'});
 	}
-};*/
+};
 var models = require('../models/models.js');
 
 // Utilizamos la base de datos de SQLite 
@@ -28,6 +28,30 @@ exports.answer = function(req, res) {
 		} else {
 			res.render('quizes/answer', {respuesta: 'Incorrecto'});
 		}
+	});
+}*/
+var models = require('../models/models.js');
+
+exports.show = function(req, res) {
+	models.Quiz.findById(req.params.quizId).then(function(quiz) {
+		res.render('quizes/show', {quiz: quiz});
+	})
+};
+
+exports.answer = function(req, res) {
+	console.log('entra');
+	models.Quiz.findById(req.params.quizId).then(function(quiz) {
+		if (req.query.respuesta === quiz.respuesta) {
+			res.render('quizes/answer',{quiz: quiz, respuesta:'Correcto'});
+		} else {
+			res.render('quizes/answer',{quiz: quiz, respuesta:'Incorrecto'});
+		}
+	})
+};
+
+exports.index = function(req, res) {
+	models.Quiz.findAll().then(function(quizes) {
+		res.render('quizes/index', {quizes: quizes});
 	});
 }
 
