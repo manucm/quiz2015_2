@@ -39,3 +39,6 @@ img {
 	display: inline;
 	margin-left: 1em;
 }
+
+nav span { margin: 0 10px 0 0;}
+#ErrorMsgs { color: #f61; font-size: smaler}
