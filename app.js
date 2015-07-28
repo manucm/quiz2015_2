@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require('method-override');
+//var global.variables = require('./vg/variables.js');
 
 var routes = require('./routes/index');
 //var users = require('./routes/users');

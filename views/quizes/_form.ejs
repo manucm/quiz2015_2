@@ -1,3 +1,9 @@
+<%
+  var opciones = {'otro': 'Otro', 
+					'humanidades':'Humanidades', 
+					'ocio': 'Ocio', 
+					'ciencia': 'Ciencia', 
+					'tecnologia': 'Tecnología'} %>
 <p>
 	<label for="preg" class="rem">Pregunta:</label>
 	<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>">
@@ -5,6 +11,15 @@
 <p>
 	<label for="resp" class="ren">Respuesta</label>
 	<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>">
+</p>
+
+<p>
+	<label for="tem" class="ren">Temática</label>
+	<select id="tem" name="quiz[tematica]">
+		<% var j; for (j in opciones) { %>
+			<option value="<%= j %>" <%= (j == quiz.tematica)? "selected": "" %>  ><%= opciones[j] %></option>
+		<% } %> 
+	</select>
 </p>
 
 <p>

@@ -26,6 +26,7 @@ nav, footer, header,  section {
 	background: #eee; text-align: center;
 }
 
+
 nav span {
 	margin: 0px 10px 0px 0px;
 }
@@ -42,3 +43,39 @@ img {
 
 nav span { margin: 0 10px 0 0;}
 #ErrorMsgs { color: #f61; font-size: smaler}
+
+.tabla th, .tabla td {
+	padding: .3em;
+	text-align: center;
+}
+
+.tabla {
+	width: 40%;
+	min-width: 371px;
+	margin:1em auto;
+	border-collapse: collapse;
+}
+
+.tabla thead {
+	background: black;
+	color: white;
+}
+
+.tabla tbody tr:nth-child(odd) {
+	color:white;
+	background: #585151;
+}
+
+.tabla tbody tr:nth-child(even) {
+	color:white;
+	background: #605C5C;
+}
+
+.dis-inline {
+	margin: .3em;
+	display: inline;
+}
+
+.a-btn {
+	margin: 1em;
+}
