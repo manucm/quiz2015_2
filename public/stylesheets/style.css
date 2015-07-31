@@ -79,3 +79,8 @@ nav span { margin: 0 10px 0 0;}
 .a-btn {
 	margin: 1em;
 }
+
+.right:  {
+	float:right;
+	width: 200px;
+}
