@@ -44,6 +44,33 @@ app.use(function(req, res, next) {
     next();
 });
 
+// Helper para controlar el autologs
+app.use(function(req, res, next) {
+
+    // Comprobamos si existe usuario
+    if (req.session.user) {
+
+        // Comprobamos si existia 
+        var nuevaHora = new Date();
+
+
+        if (!req.session.hora) {
+            req.session.hora = nuevaHora.getTime();
+            req.session.hora_actual = nuevaHora.toLocaleString();
+        } else {
+            if ((nuevaHora-req.session.hora)/1000 > 120) {
+                delete req.session.hora;
+                delete req.session.user;
+            } else {
+                req.session.hora = nuevaHora.getTime();
+                req.session.hora_actual = nuevaHora.toLocaleString();
+            }
+        }
+    }
+    res.locals.session = req.session;
+    next();
+});
+
 app.use('/', routes);
 //app.use('/users', users);
 

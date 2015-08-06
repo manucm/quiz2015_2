@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 var quizController = require('../controllers/quiz_controller');
-var author = require('../controllers/author');
+var author = require('../controllers/author_controller');
 var commentController = require('../controllers/comment_controller');
 var sessionController = require('../controllers/session_controller');
+var stadisticController = require('../controllers/stadistics_controller');
 
 
 /* GET home page. */
@@ -36,6 +37,9 @@ router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
 router.post('/quizes/:quizId(\\d+)/comments', commentController.create);
 router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',
 													sessionController.loginRequired, commentController.publish);
+
+// Ruta relativa a las estadisticas
+router.get('/quizes/stadistics', stadisticController.information);
 
 /*
 router.get('/quizes/question', quizController.question);

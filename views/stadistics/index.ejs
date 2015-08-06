@@ -1,0 +1,20 @@
+<h2>Estadísticas de Quiz</h2>
+
+<table class="tabla">
+	<thead>
+		<tr>
+			<th>Indice</th>
+			<th>Dato</th>
+			<th>Resultado</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% var cont=0; for (var i in info) { %>
+			<tr>
+				<th><%= ++cont %></th>
+				<th><%= i.replace(/_/g, " ") %></th>
+				<th><%= info[i] %></th>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
